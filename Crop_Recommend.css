@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147));
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.menu{
+    padding:1% 0 0 3%;
+    color:white;
+    background-color: rgb(8, 8, 8,.4);
+    font-size: 1.4rem;
+}
+.menu h2{
+    padding-bottom: 40px;
+}
+.menu h2:hover{
+    cursor: pointer;
+}
+
+#CR_Heading {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size:2rem;
+}
+
+#CR_Heading h2 {
+    color: #333;
+}
+
+#CR_Form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: fit-content;
+    margin: 5% auto;
+}
+
+#CR_Form form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:50px;
+}
+
+#CR_Form label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+#CR_Form input[type="number"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+}
+
+#CR_Form input[type="submit"] {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#CR_Form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+#CR_Result {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom:100px;
+}
+
+#CR_Result h2 {
+    color: #333;
+}
+
+#Footer_Section{
+    text-align: center;
+    background-color: rgb(7, 156, 14);
+    color:white;
+
+    padding:2%;
+    margin-top:5%;
+}
+#Footer_Section h2,#Footer_Section h3{
+    margin:0;
+}
+#Footer_Section h3{
+    margin-top:1%;
+}

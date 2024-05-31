@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/Crop_Recommend.css">
+</head>
+
+<body>
+    <div class="menu">
+        <h2 onclick="location.href='/'"><span style="color: rgb(92, 247, 105);">H</span>ome</h2>
+    </div>
+    <div id="CR_Heading">
+        <h2>Crop Recommendation</h2>
+    </div>
+    <div id="CR_Form">
+        <form method="post" id="form">
+            <div>
+                <label for="N">Nitrogen:</label><br><br>
+                <input type="number" id="N" name="N" required><br><br>
+    
+                <label for="P">Phosphorus:</label><br><br>
+                <input type="number" id="P" name="P" required><br><br>
+    
+                <label for="K">Potassium:</label><br><br>
+                <input type="number" id="K" name="K" required><br><br>
+    
+                <label for="temp">Temperature:</label><br><br>
+                <input type="number" step="0.001" id="temp" name="temp" required><br><br>
+            </div>
+
+            <div>
+                <label for="humidity">Humidity:</label><br><br>
+                <input type="number" step="0.001" id="humidity" name="humidity" required><br><br>
+    
+                <label for="ph">Ph:</label><br><br>
+                <input type="number" step="0.001" id="ph" name="ph" required><br><br>
+    
+                <label for="rain">Rainfall:</label><br><br>
+                <input type="number" step="0.001" id="rain" name="rain" required><br><br>
+            </div>
+            <div></div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div id="CR_Result">
+        <h2 id="result"></h2>
+    </div>
+    <div id="Footer_Section">
+        <div class="credit">
+            <h2>Made by - </h2>
+            <h3>Students of Graphic Era Hill University</h3>
+        </div>
+    </div>
+    <script>
+        document.getElementById('form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var formData = new FormData(document.getElementById('form'));
+            var jsonData = {};
+
+            formData.forEach((value, key) => {
+                jsonData[key] = value;
+            });
+
+            fetch('/model/Crop Recommendation/Result', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonData)
+            }).then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    document.getElementById('result').innerHTML = "Prediction result: " + data.result;
+                }).catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+
+</html>

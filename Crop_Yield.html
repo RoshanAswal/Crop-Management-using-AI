@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static//css//Crop_Yield.css">
+</head>
+<body>
+    <div class="menu">
+        <h2 onclick="location.href='/'"><span style="color: rgb(92, 247, 105);">H</span>ome</h2>
+    </div>
+    <div id="CY_Heading">
+        <h2>Crop Yield Prediction</h2>
+    </div>
+    <div id="CY_Form">
+        <form id="form" method="post">
+            <div>
+                <label for="area">Area:</label><br><br>
+                <input type="text" id="area" name="area" required><br><br>
+    
+                <label for="item">Item:</label><br><br>
+                <input type="text" id="item" name="item" required><br><br>
+    
+                <label for="year">Year:</label><br><br>
+                <input type="number" id="year" name="year" required><br><br>
+            </div>
+
+            <div>
+                <label for="temp">Temperature:</label><br><br>
+                <input type="number" id="temp" name="temp" required><br><br>
+            
+                <label for="rain">Avg Rainfall(mm)/year:</label><br><br>
+                <input type="number" step="0.01" id="rain" name="rain" required><br><br>
+    
+                <label for="pesticide">Pesticides (tonnes):</label><br><br>
+                <input type="number" step="0.01" id="pesticide" name="pesticide" required><br><br>
+            </div>
+            <div></div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div id="CY_Result">
+        <h2 id="result"></h2>
+    </div>
+    <div id="Footer_Section">
+        <div class="credit">
+            <h2>Made by - </h2>
+            <h3>Students of Graphic Era Hill University</h3>
+        </div>
+    </div>
+    <script>
+        document.getElementById('form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var formData = new FormData(document.getElementById('form'));
+            var jsonData = {};
+
+            formData.forEach((value, key) => {
+                jsonData[key] = value;
+            });
+
+            fetch("/model/Crop Yield Prediction/Result", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonData)
+            }).then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    document.getElementById('result').innerHTML = "Prediction result: " + data.result + " Hectogram/hectare";
+                }).catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+body{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+/*----------------------------- Intro Section ------------------------------*/
+#Intro_Section{
+    background-image: url('./images/farmer.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:100%;
+    height:95vh;
+    background-color: black;
+}
+.menu{
+    padding:1% 0 0 3%;
+    color:white;
+    background-color: rgb(8, 8, 8,.4);
+    font-size: 1.4rem;
+}
+.menu h2{
+    padding-bottom: 40px;
+}
+.des{
+    position:absolute;
+    top:40%;
+    left:30%;
+    transform: translate(-50%,-50%);
+    color:white;
+}
+.des h1{
+    font-size: 4rem;
+}
+.des h2{
+    font-size: 2rem;
+}
+
+/*----------------------------- Model Section ------------------------------*/
+#model_Section{
+    margin-top:3%;
+    padding:3% 10%;
+    top:50%;
+    left:50%;
+}
+#model_Section .cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap:50px;
+
+    align-items: center;
+}
+.cards img{
+    width:20rem;
+    height:22rem;
+}
+.Crop_Recommendation,.Crop_Disease_Detection,.Crop_Yield_Prediction{
+    background:linear-gradient(107deg, rgb(7, 156, 14) 27.4%, rgb(26, 214, 16) 92.7%);
+    text-align: center;
+
+    color:white;
+    height:30vh;
+    padding:3%;
+
+    border-radius: 7%;
+}
+.Crop_Recommendation:hover,.Crop_Disease_Detection:hover,.Crop_Yield_Prediction:hover{
+    cursor: pointer;
+}
+.Crop_Recommendation p,.Crop_Disease_Detection p,.Crop_Yield_Prediction p{
+    font-size: 1.4rem;
+    font-weight: 550;
+}
+.Crop_Recommendation h2,.Crop_Disease_Detection h2,.Crop_Yield_Prediction h2{
+    color:#c7ff2c;
+    font-size:1.7rem;
+    font-weight: 700;
+}
+
+/*----------------------------- Footer Section ------------------------------*/
+
+#Footer_Section{
+    text-align: center;
+    background-color: rgb(7, 156, 14);
+    color:white;
+
+    padding:2%;
+    margin-top:5%;
+}
+#Footer_Section h2,#Footer_Section h3{
+    margin:0;
+}
+#Footer_Section h3{
+    margin-top:1%;
+}

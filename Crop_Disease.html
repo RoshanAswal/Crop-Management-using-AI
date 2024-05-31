@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/Crop_Disease.css">
+</head>
+<body>
+    <div class="menu">
+      <h2 onclick="location.href='/'"><span style="color: rgb(92, 247, 105);">H</span>ome</h2>
+    </div>
+    <div id="CD_Heading">
+        <h2>Crop Disease Detection</h2>
+    </div>
+    <div id="CD_Form">
+        <form id="imageForm" enctype="multipart/form-data">
+            <input type="file" accept="image/jpeg, image/jpg, image/png" width="48" height="48" id="plant" name="plant" onchange="setURL(this);">
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+    <div id="CD_Result">
+        <img id="result_img" src=""/>
+        <h2 id="result"></h2>
+    </div>
+    <div id="Footer_Section">
+      <div class="credit">
+        <h2>Made by - </h2>
+        <h3>Students of Graphic Era Hill University</h3>
+      </div>
+    </div>
+
+    <script>
+        document.getElementById('imageForm').addEventListener('submit', function(event) {
+          event.preventDefault();
+          var formData = new FormData();
+          var fileInput = document.getElementById('plant')
+          formData.append('plant', fileInput.files[0]);
+          fetch('/model/Crop Disease Detection/Result', {
+            method: 'POST',
+            body: formData
+          }).then(response =>response.json())
+          .then (data =>{
+            console.log("image uploaded");
+            document.getElementById('result').innerText = "Prediction result: " + data.result;
+          }).catch(error => {
+            console.error('Error:', error);
+          });
+        });
+        function setURL(input){
+          if(input.files && input.files[0]){
+            var reader=new FileReader();
+            var el=document.getElementById('result_img');
+            reader.onload=function(e){
+              el.src=e.target.result;
+              el.style.width='200px';
+              el.style.height='200px';
+            }
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+      </script>
+</body>
+</html>

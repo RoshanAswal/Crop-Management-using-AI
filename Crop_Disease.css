@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147));
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.menu{
+    padding:1% 0 0 3%;
+    color:white;
+    background-color: rgb(8, 8, 8,.4);
+    font-size: 1.4rem;
+}
+.menu h2{
+    padding-bottom: 40px;
+}
+.menu h2:hover{
+    cursor: pointer;
+}
+
+#CD_Heading {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size:2rem;
+}
+
+#CD_Heading h2 {
+    color: #333;
+}
+
+#CD_Form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: fit-content;
+    margin: 5% auto;
+}
+
+#CD_Form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#CD_Form input[type="file"] {
+    margin-bottom: 20px;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#CD_Form button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#CD_Form button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Result Section */
+#CD_Result {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom:100px;
+}
+
+#CD_Result img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#CD_Result h2 {
+    color: #333;
+}
+
+#Footer_Section{
+    text-align: center;
+    background-color: rgb(7, 156, 14);
+    color:white;
+
+    padding:2%;
+    margin-top:15%;
+}
+#Footer_Section h2,#Footer_Section h3{
+    margin:0;
+}
+#Footer_Section h3{
+    margin-top:1%;
+}
